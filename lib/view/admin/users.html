@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block title %}User Administration{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+	{% set comma = joiner() %}
+	var users = {{ users_json | safe }};
+	users.forEach( function ( user, i ) {
+		console.log( i + ' ' + user );
+	});
+</script>
+{% endblock %}
+
+{% block css %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<h1>/admin/users</h1>
+<p>{{ msg }}</p>
+<p>test</p>
+{% if users.length %}
+<h2>Users</h2>
+<table>
+	<thead>
+		<th>ID</th>
+		<th>Username</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Created</th>
+		<th>Full Name</th>
+	</thead>
+	<tbody>
+	{%- for user in users %}
+	<tr>
+		<td>{{ user.id }}</td>
+		<td>{{ user.username }}</td>
+		<td>{{ user.firstname }}</td>
+		<td>{{ user.lastname }}</td>
+		<td>{{ user.created }}</td>
+		<td>{{ user.fullname() }}</td>
+	</tr>
+	{% endfor %}
+	</tbody>
+{% endif %}
+</table>
+
+<form action="/crud/admin/users/3/edit" method="post">
+<!--<input type="hidden" name="id" value="1" />-->
+<input type="hidden" name="firstname" value="Testy" />
+<input type="hidden" name="lastname" value="Testerman" />
+<input type="submit" name="Submit" value="Update" />
+</form>
+
+{% endblock %}
+
+{% block sidebar_left %}
+<div id="sidebar_left">
+	<p>sidebar_left</p>
+</div>
+{% endblock %}
+
+
+{% block sidebar_right %}
+<div id="sidebar_right">
+	<p>sidebar_right</p>
+</div>
+{% endblock %}

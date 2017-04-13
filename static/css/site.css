@@ -1,0 +1,27 @@
+#content {
+	float: left;
+	width: 500px;
+	height: 1000px;
+	border-radius: 3px;
+	border: 2px solid black;
+	padding: 3px;
+	margin: 10px;
+}
+#sidebar_left {
+	float: left;
+	width: 100px;
+	height: 1000px;
+	border-radius: 3px;
+	border: 2px solid black;
+	padding: 9px;
+	margin: 10px;
+}
+#sidebar_right {
+	float: left;
+	width: 100px;
+	height: 1000px;
+	border-radius: 3px;
+	border: 2px solid black;
+	padding: 25px;
+	margin: 10px;
+}

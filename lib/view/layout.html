@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lange="en">
+<head>
+<title>{% block title %}Convergence{% endblock %}</title>
+	{% block js %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	{% endblock %}
+	{% block css %}
+	<link rel="stylesheet" href="/css/site.css" />
+	{% endblock %}
+</head>
+<body>
+<div id="header">
+{% include 'inc/header.html' %}
+</div>
+<div id="content">
+{% block sidebar_left %}{% endblock %}
+{% block content %}{% endblock %}
+{% block sidebar_right %}{% endblock %}
+</div>
+<div style="clear: both;"></div>
+<div id="footer">
+{% include 'inc/footer.html' %}
+</div>
+</body>
+</html>
